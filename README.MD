@@ -1,3 +1,5 @@
+This was written based on the problem statement given to prepare a PoC for SKU recommedation based on the input json data. 
+
 The SKU recommendation algorithm is written in python, pandas and the web-api to query the skus is written through Flask.
 
 Steps to execute:
