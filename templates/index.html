@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .child1{
+      width:100%;
+      display:inline-block;
+      border:1px solid #cccccc;
+    }
+    .child2{
+      text-align:center
+      width:80%;
+      display:inline-block;
+      border:1px solid #cccccc;
+    }
+  </style>
+</head>
+<body>
+<div style="text-align:center">
+<div class="child1">
+<h3>Home24 Reco Assessment</h3>
+<form action="/reco-query" method="get">
+  SKU &nbsp;<br>
+  <input type="text" name="sku" value="">
+  <br><br>
+  Reco Count &nbsp;<br>
+  <input type="text" name="recocount" value="10">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<p>Click submit to view the recommended skus</p>
+</div>
+<div class="child2">
+{{ table_data }}
+</div>
+</div>
+</body>
+</html>
