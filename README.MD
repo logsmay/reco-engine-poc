@@ -24,10 +24,10 @@ It will display the queried sku attributes, also it's respective recommended sku
 For further configurations, check reco.cfg 
 
 Algorithm:
-> Load json data {D} into the dataframe [DF]
-> Match attribute_query(sku) in [DF] and create a attribute matching bool matrix [[sku1,sku2...][att-a,att-b...]]
-> Calculate [attributeSumDF] = BooleanSum([sku(1..n)](att-a=True,att-b=False,att-c=True...))
-> Generate geometric Series [GS] 1/(2^n) where n=0,1,2,3,... for series[att-a,att-b,att-c...]
-> Calculate [geometricSumDF] = [GS] X sum([sku(1..n)](att-a=True, att-b=False, att-c=True))
-> MemJoin [DF] X [attributeSumDF] X [geometricSumDF] order by attribSum & geometricSum limit with the input reco count (reco_num)
-> Generate HTML/Json from the final data & feed it to webframework
+1. Load json data {D} into the dataframe [DF]
+2. Match attribute_query(sku) in [DF] and create a attribute matching bool matrix [[sku1,sku2...][att-a,att-b...]]
+3. Calculate [attributeSumDF] = BooleanSum([sku(1-n)](att-a=True,att-b=False,att-c=True...))
+4. Generate geometric Series [GS] 1/(2^n) where n=0,1,2,3,... for series[att-a,att-b,att-c...]
+5. Calculate [geometricSumDF] = [GS] X sum([sku(1-n)](att-a=True, att-b=False, att-c=True))
+6. MemJoin [DF] X [attributeSumDF] X [geometricSumDF] order by attribSum & geometricSum limit with the input reco count (reco_num)
+7. Generate HTML/Json from the final data & feed it to webframework
